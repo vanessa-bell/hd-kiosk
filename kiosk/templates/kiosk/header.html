@@ -1,9 +1,10 @@
+{% load active_tags %}
 <div class="container-fluid">
     <ul class="nav nav-tabs">
-        <li role="presentation" class="active"><a href="/faqs">FAQs</a></li>
-        <li role="presentation"><a href="/events">Events</a></li>
-        <li role="presentation"><a href="/building_map">Building Map</a></li>
-        <li role="presentation"><a href="/about_us">About Us</a></li>
-        <li role="presentation"><a href="/pricing">Pricing</a></li>
+        <li role="presentation" class="{% ifequal request.path '/faqs/' %}active{% endifequal %}"><a href="{% url 'faqs' %}">FAQs</a></li>
+        <li role="presentation" class="{% ifequal request.path '/events/' %}active{% endifequal %}"><a href="{% url 'events' %}">Events</a></li>
+        <li role="presentation" class="{% ifequal request.path '/building_map/' %}active{% endifequal %}"><a href="{% url 'building_map' %}">Building Map</a></li>
+        <li role="presentation" class="{% ifequal request.path '/about_us/' %}active{% endifequal %}"><a href="{% url 'about_us' %}">About Us</a></li>
+        <li role="presentation" class="{% ifequal request.path '/pricing/' %}active{% endifequal %}"><a href="{% url 'pricing' %}">Pricing</a></li>
     </ul>
 </div>

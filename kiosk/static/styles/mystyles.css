@@ -1,0 +1,9 @@
+.event-list {
+	height: 65vh;
+	overflow-y: scroll;
+}
+
+#building-map {
+	height: 70vh;
+	overflow-y: scroll;
+}
