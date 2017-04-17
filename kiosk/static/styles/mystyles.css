@@ -1,9 +1,19 @@
 .event-list {
-	height: 65vh;
+	height: 55vh;
 	overflow-y: scroll;
 }
 
 #building-map {
 	height: 70vh;
 	overflow-y: scroll;
+}
+
+.nav-tabs > li {
+    float:none;
+    display:inline-block;
+    zoom:1;
+}
+
+.nav-tabs {
+    text-align:center;
 }

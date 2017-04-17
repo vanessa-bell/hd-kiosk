@@ -1,6 +1,7 @@
 {% load active_tags %}
 <div class="container-fluid">
-    <ul class="nav nav-tabs">
+	<h1 class="text-center">Welcome to Hacker Dojo!</h1>
+    <ul class="nav nav-tabs text-center">
         <li role="presentation" class="{% ifequal request.path '/faqs/' %}active{% endifequal %}"><a href="{% url 'faqs' %}">FAQs</a></li>
         <li role="presentation" class="{% ifequal request.path '/events/' %}active{% endifequal %}"><a href="{% url 'events' %}">Events</a></li>
         <li role="presentation" class="{% ifequal request.path '/building_map/' %}active{% endifequal %}"><a href="{% url 'building_map' %}">Building Map</a></li>
