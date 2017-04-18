@@ -6,11 +6,12 @@
     	<div class="row">
     		<div class="col-md-10 col-md-offset-1">
 		        <h1 class="text-center">Events</h1>
-		        <p class="text-center">Tap an event to learn more.</p>
+		        <p class="text-center"><i class="fa fa-info-circle" aria-hidden="true"></i> Tap an event to learn more.</p>
 		        <p class="text-center"><a data-fancybox="gallery" href="/map">View Building Map</a></p>
 
-		        <div class="event-list list-group">
+		        <div class="event-list list-group well">
 			        {% for event in data %}
+			        	{% if event.status != 'canceled' and event.day != yesterday %}
 			        		<a class="event list-group-item list-group-item-action" data-fancybox="gallery" href='https://events.hackerdojo.com/event/{{event.id}}'>
 			        		
 								<h5><strong>{{ event.name }}</strong></h5>
@@ -23,6 +24,7 @@
 									{{ room }}
 								{% endfor %}</p>
 						</a>
+						{% endif %}
 			        {% endfor %}
 		        </ul>
 		    </div>

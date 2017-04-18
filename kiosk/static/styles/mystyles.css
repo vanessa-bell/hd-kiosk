@@ -10,14 +10,15 @@ body {
 	margin-top: 10px;
 }
 .event-list {
-	height: 65vh;
+	height: 60vh;
 	overflow-y: scroll;
 }
 
 #membership-info {
-	height: 15vh;
+	height: 19vh;
 	overflow-y: scroll;
 	overflow-x: hidden;
+	list-style-type: none;
 }
 
 #building-map {
@@ -28,6 +29,8 @@ body {
 #logo {
 	height: 50px;
 	margin: 0px auto;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	display: block;
 }
 
