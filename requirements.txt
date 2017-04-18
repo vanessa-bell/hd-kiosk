@@ -46,10 +46,8 @@ requests==2.4.3
 responses==0.5.1
 rsa==3.4.2
 s3transfer==0.1.10
-six==1.4.1
 SQLAlchemy==1.0.14
 virtualenv==15.0.2
 Werkzeug==0.11.10
 wrapt==1.10.8
-xattr==0.6.4
 zope.interface==4.1.1
