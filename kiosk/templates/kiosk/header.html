@@ -1,11 +1,11 @@
 {% load active_tags %}
 <div class="container-fluid">
-	<h1 class="text-center">Welcome to Hacker Dojo!</h1>
+	<img id='logo' src='../../static/img/hacker_dojo_logo_regular.png'>
     <ul class="nav nav-tabs text-center">
         <li role="presentation" class="{% ifequal request.path '/faqs/' %}active{% endifequal %}"><a href="{% url 'faqs' %}">FAQs</a></li>
         <li role="presentation" class="{% ifequal request.path '/events/' %}active{% endifequal %}"><a href="{% url 'events' %}">Events</a></li>
         <li role="presentation" class="{% ifequal request.path '/building_map/' %}active{% endifequal %}"><a href="{% url 'building_map' %}">Building Map</a></li>
         <li role="presentation" class="{% ifequal request.path '/about_us/' %}active{% endifequal %}"><a href="{% url 'about_us' %}">About Us</a></li>
-        <li role="presentation" class="{% ifequal request.path '/pricing/' %}active{% endifequal %}"><a href="{% url 'pricing' %}">Pricing</a></li>
+        <li role="presentation" class="{% ifequal request.path '/membership/' %}active{% endifequal %}"><a href="{% url 'membership' %}">Membership</a></li>
     </ul>
 </div>

@@ -7,16 +7,21 @@
     		<div class="col-md-10 col-md-offset-1">
 		        <h1 class="text-center">Events</h1>
 		        <p class="text-center">Tap an event to learn more.</p>
+		        <p class="text-center"><a data-fancybox="gallery" href="/map">View Building Map</a></p>
+
 		        <div class="event-list list-group">
 			        {% for event in data %}
-			        	<a class="event list-group-item list-group-item-action" href='https://events.hackerdojo.com/event/{{event.id}}'>
-							<h5><strong>{{ event.name }}</strong></h5>
-							<p>{{ event.type }}</p>
-							<p><strong>Time:</strong> {{event.start_time}} to {{event.end_time}}</p>
-							<p><strong>Room:</strong>
-							{% for room in event.rooms %}
-								{{ room }}
-							{% endfor %}</p>
+			        		<a class="event list-group-item list-group-item-action" data-fancybox="gallery" href='https://events.hackerdojo.com/event/{{event.id}}'>
+			        		
+								<h5><strong>{{ event.name }}</strong></h5>
+								<p>{{ event.type }}</p>
+								<p><strong>Date:</strong> {{event.day}}</p>
+								<p><strong>Time:</strong> {{event.start}} - {{event.end}}</p>
+								<p><strong>Room:</strong>
+								
+								{% for room in event.rooms %}
+									{{ room }}
+								{% endfor %}</p>
 						</a>
 			        {% endfor %}
 		        </ul>

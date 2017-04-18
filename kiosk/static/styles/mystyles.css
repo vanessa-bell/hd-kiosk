@@ -1,11 +1,34 @@
+body {
+	font-family: "Verdana","Arial",sans-serif !important;
+}
+
+.membership {
+	font-weight: bold !important;
+}
+
+.spacing {
+	margin-top: 10px;
+}
 .event-list {
-	height: 55vh;
+	height: 65vh;
 	overflow-y: scroll;
+}
+
+#membership-info {
+	height: 15vh;
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
 
 #building-map {
 	height: 70vh;
 	overflow-y: scroll;
+}
+
+#logo {
+	height: 50px;
+	margin: 0px auto;
+	display: block;
 }
 
 .nav-tabs > li {
