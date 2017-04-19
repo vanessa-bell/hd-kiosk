@@ -1,11 +1,13 @@
 import json
 import requests
+import itertools
 
 from django.shortcuts import render
 from django.views import generic
 from django.http import HttpResponse
 from .models import Faqs
 from datetime import datetime, timedelta
+from operator import itemgetter
 
 # Create your views here.
 def IndexView(request):
@@ -19,14 +21,15 @@ def EventsView(request):
 	resp = requests.get(url=url)
 	data = resp.json()
 	yesterday = datetime.strftime(datetime.now() - timedelta(1),"%A, %B %d, %Y")
+	today = datetime.strftime(datetime.now(),"%A, %B %d, %Y")
 	for event in data:
 		event['start_time'] = datetime.strptime(event['start_time'], '%Y-%m-%dT%H:%M:%S')
 		event['end_time'] = datetime.strptime(event['end_time'], '%Y-%m-%dT%H:%M:%S')
 		event['day'] = event['start_time'].strftime("%A, %B %d, %Y")
 		event['start'] = event['start_time'].strftime("%I:%M %p")
 		event['end'] = event['end_time'].strftime("%I:%M %p")
-	# TODO don't show past events
-	return render(request, 'kiosk/events.html',{'data':data,'yesterday':yesterday})
+
+	return render(request, 'kiosk/events.html',{'data':data,'yesterday':yesterday,'today':today})
 
 def BuildingMapView(request):
     return render(request, 'kiosk/building_map.html')

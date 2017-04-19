@@ -10,23 +10,43 @@
 		        <p class="text-center"><a data-fancybox="gallery" href="/map">View Building Map</a></p>
 
 		        <div class="event-list list-group well">
-			        {% for event in data %}
-			        	{% if event.status != 'canceled' and event.day != yesterday %}
-			        		<a class="event list-group-item list-group-item-action" data-fancybox="gallery" href='https://events.hackerdojo.com/event/{{event.id}}'>
-			        		
-								<h5><strong>{{ event.name }}</strong></h5>
-								<p>{{ event.type }}</p>
-								<p><strong>Date:</strong> {{event.day}}</p>
-								<p><strong>Time:</strong> {{event.start}} - {{event.end}}</p>
-								<p><strong>Room:</strong>
-								
-								{% for room in event.rooms %}
-									{{ room }}
-								{% endfor %}</p>
-						</a>
-						{% endif %}
+			        {% regroup data by day as events_by_day %}
+			        {% for day in events_by_day %}
+			        	{% if day.grouper != yesterday %}
+			        		{% if day.grouper == today %}
+			        			<h3>TODAY ({{day.grouper}})</h3>
+			        		{% endif %}
+			        		{% if day.grouper != today %}
+				        		<h3>{{day.grouper}}</h3>
+				        	{% endif %}
+				        	{% for item in day.list %}
+				        		{% if item.status != 'canceled' %}
+				        			<a class="event list-group-item" data-fancybox="gallery" href='https://events.hackerdojo.com/event/{{item.id}}'>
+						        	<div>
+						        		<h4>{{ item.name }}</h4>
+						        		<p>{{ item.type }}</p>
+						        		<p><strong>Time:</strong> {{ item.start }} - {{ item.end }}</p>
+						        		<p><strong>Room:</strong>
+											{% for room in item.rooms %}
+												{{ room }}
+											{% endfor %}</p>
+						        	</div>
+						        </a>
+								{% endif %}
+								{% if item.status == 'canceled' %}
+						        	<div class="list-group-item" style="text-decoration: line-through; ">
+						        		<h4>{{ item.name }}</h4>
+						        		<p>{{ item.type }}</p>
+						        		<p>{{ item.start }} - {{ item.end }}</p>
+						        		<p><strong>Room:</strong>
+											{% for room in item.rooms %}
+												{{ room }}
+											{% endfor %}</p>
+						        	</div>
+								{% endif %}
+				        	{% endfor %}
+			        	{% endif %}
 			        {% endfor %}
-		        </ul>
 		    </div>
 		</div>
     </div>
