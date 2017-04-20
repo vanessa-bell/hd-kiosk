@@ -1,0 +1,45 @@
+body {
+	font-family: "Verdana","Arial",sans-serif !important;
+}
+
+.membership {
+	font-weight: bold !important;
+}
+
+.spacing {
+	margin-top: 10px;
+}
+.event-list {
+	height: 60vh;
+	overflow-y: scroll;
+}
+
+#membership-info {
+	height: 19vh;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	list-style-type: none;
+}
+
+#building-map {
+	height: 70vh;
+	overflow-y: scroll;
+}
+
+#logo {
+	height: 50px;
+	margin: 0px auto;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	display: block;
+}
+
+.nav-tabs > li {
+    float:none;
+    display:inline-block;
+    zoom:1;
+}
+
+.nav-tabs {
+    text-align:center;
+}

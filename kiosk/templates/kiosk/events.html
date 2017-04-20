@@ -1,10 +1,54 @@
 {% extends "kiosk/index.html" %}
-
 {% block title %} Hacker Dojo Kiosk: Events {% endblock %}
 
 {% block content %}
-    <div class="main">
-        <h1> Events</h1>
+    <div class="main container-fluid">
+    	<div class="row">
+    		<div class="col-md-10 col-md-offset-1">
+		        <h1 class="text-center">Events</h1>
+		        <p class="text-center"><i class="fa fa-info-circle" aria-hidden="true"></i> Tap an event to learn more.</p>
+		        <p class="text-center"><a data-fancybox="gallery" href="/map">View Building Map</a></p>
 
+		        <div class="event-list list-group well">
+			        {% regroup data by day as events_by_day %}
+			        {% for day in events_by_day %}
+			        	{% if day.grouper != yesterday %}
+			        		{% if day.grouper == today %}
+			        			<h3>TODAY ({{day.grouper}})</h3>
+			        		{% endif %}
+			        		{% if day.grouper != today %}
+				        		<h3>{{day.grouper}}</h3>
+				        	{% endif %}
+				        	{% for item in day.list %}
+				        		{% if item.status != 'canceled' %}
+				        			<a class="event list-group-item" data-fancybox="gallery" href='https://events.hackerdojo.com/event/{{item.id}}'>
+						        	<div>
+						        		<h4>{{ item.name }}</h4>
+						        		<p>{{ item.type }}</p>
+						        		<p><strong>Time:</strong> {{ item.start }} - {{ item.end }}</p>
+						        		<p><strong>Room:</strong>
+											{% for room in item.rooms %}
+												{{ room }}
+											{% endfor %}</p>
+						        	</div>
+						        </a>
+								{% endif %}
+								{% if item.status == 'canceled' %}
+						        	<div class="list-group-item" style="text-decoration: line-through; ">
+						        		<h4>{{ item.name }}</h4>
+						        		<p>{{ item.type }}</p>
+						        		<p>{{ item.start }} - {{ item.end }}</p>
+						        		<p><strong>Room:</strong>
+											{% for room in item.rooms %}
+												{{ room }}
+											{% endfor %}</p>
+						        	</div>
+								{% endif %}
+				        	{% endfor %}
+			        	{% endif %}
+			        {% endfor %}
+		    </div>
+		</div>
     </div>
 {% endblock %}
+

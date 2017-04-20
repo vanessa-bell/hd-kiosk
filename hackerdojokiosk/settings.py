@@ -24,7 +24,10 @@ SECRET_KEY = 'phnv4470sb&a_t%9&dv59_p#xwdn73$6ykw5==!(=x3#q2crtr'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    'jwhxudxzbq.localtunnel.me'
+]
 
 # Application definition
 
@@ -35,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'kiosk'
+    'kiosk',
+    'schedule'
 ]
 
 MIDDLEWARE = [
@@ -119,11 +123,17 @@ TIME_ZONE = 'America/Los_Angeles'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
 USE_TZ = True
 
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_ROOT, 'static'),
+)

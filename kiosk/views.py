@@ -1,7 +1,13 @@
+import json
+import requests
+import itertools
+
 from django.shortcuts import render
 from django.views import generic
+from django.http import HttpResponse
 from .models import Faqs
-
+from datetime import datetime, timedelta
+from operator import itemgetter
 
 # Create your views here.
 def IndexView(request):
@@ -11,50 +17,32 @@ def FaqsView(request):
     return render(request, 'kiosk/faqs.html')
 
 def EventsView(request):
-    return render(request, 'kiosk/events.html')
+	url = 'https://events.hackerdojo.com/events.json'
+	resp = requests.get(url=url)
+	data = resp.json()
+	yesterday = datetime.strftime(datetime.now() - timedelta(1),"%A, %B %d, %Y")
+	today = datetime.strftime(datetime.now(),"%A, %B %d, %Y")
+	for event in data:
+		event['start_time'] = datetime.strptime(event['start_time'], '%Y-%m-%dT%H:%M:%S')
+		event['end_time'] = datetime.strptime(event['end_time'], '%Y-%m-%dT%H:%M:%S')
+		event['day'] = event['start_time'].strftime("%A, %B %d, %Y")
+		event['start'] = event['start_time'].strftime("%I:%M %p")
+		event['end'] = event['end_time'].strftime("%I:%M %p")
+
+	return render(request, 'kiosk/events.html',{'data':data,'yesterday':yesterday,'today':today})
 
 def BuildingMapView(request):
     return render(request, 'kiosk/building_map.html')
 
-def PricingView(request):
-    return render(request, 'kiosk/pricing.html')
+def MembershipView(request):
+    return render(request, 'kiosk/membership.html')
 
 def AboutUsView(request):
     return render(request, 'kiosk/about_us.html')
 
-# class IndexView(generic.ListView):
-#     template_name = 'kiosk/index.html'
-#
-#     def get_queryset(self):
-#         return 'Index (placeholder)'
-#
-#
-# class FaqsView(generic.ListView):
-#     template_name = 'kiosk/faqs.html'
-#
-#     def get_queryset(self):
-#         return 'FAQs (placeholder)'
-#
-# class EventsView(generic.ListView):
-#     template_name = 'kiosk/events.html'
-#
-#     def get_queryset(self):
-#         return 'Events (placeholder)'
-#
-# class BuildingMapView(generic.ListView):
-#     template_name = 'kiosk/building_map.html'
-#
-#     def get_queryset(self):
-#         return 'Building Map (placeholder)'
-#
-# class PricingView(generic.ListView):
-#     template_name = 'kiosk/pricing.html'
-#
-#     def get_queryset(self):
-#         return 'Pricing (placeholder)'
-#
-# class AboutUsView(generic.ListView):
-#     template_name = 'kiosk/about_us.html'
-#
-#     def get_queryset(self):
-#         return 'About us (placeholder)'
+def MapView(request):
+    return render(request, 'kiosk/map.html')
+
+
+
+
