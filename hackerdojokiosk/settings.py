@@ -85,13 +85,13 @@ WSGI_APPLICATION = 'hackerdojokiosk.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'kioskdb',
+        'NAME': 'infokioskdb',
         'USER': 'root',
-        'PASSWORD': 'root',
+        'PASSWORD': 'admin',
         'HOST': 'localhost',  # Or an IP Address that your DB is hosted on
         'PORT': '3306',
         'OPTIONS': {
-            'sql_mode': 'traditional',
+
         },
     }
 }
