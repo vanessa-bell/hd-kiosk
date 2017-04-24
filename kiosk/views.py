@@ -17,15 +17,16 @@ def IndexView(request):
 
 
 def FaqsView(request):
-    faqs = Faq.objects.all()
-    print(faqs)
-    statistics = Statistic.objects.all()
-    print(statistics)
-    now = datetime.now()
-    print("***************")
-    print(now)
-    print("***************")
-    return render(request, 'kiosk/faqs.html', {'faqs': faqs, 'statistics': statistics, 'current_time': now})
+    # faqs = Faq.objects.all()
+    # print(faqs)
+    # statistics = Statistic.objects.all()
+    # print(statistics)
+    # now = datetime.now()
+    # print("***************")
+    # print(now)
+    # print("***************")
+    # {'faqs': faqs, 'statistics': statistics, 'current_time': now}
+    return render(request, 'kiosk/faqs.html')
 
 
 def EventsView(request):
