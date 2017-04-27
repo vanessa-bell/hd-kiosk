@@ -7,8 +7,6 @@
     		<div class="col-md-10 col-md-offset-1">
 		        <h1 class="text-center">Events</h1>
 		        <p class="text-center"><i class="fa fa-info-circle" aria-hidden="true"></i> Tap an event to learn more.</p>
-		        <p class="text-center"><a data-fancybox="gallery" href="/map">View Building Map</a></p>
-
 		        <div class="event-list list-group well">
 			        {% regroup data by day as events_by_day %}
 			        {% for day in events_by_day %}

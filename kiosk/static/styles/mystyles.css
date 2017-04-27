@@ -2,6 +2,12 @@ body {
 	font-family: "Verdana","Arial",sans-serif !important;
 }
 
+footer{
+	background-color: #e4e4e4;
+	padding-bottom: 20px;
+}
+
+
 .membership {
 	font-weight: bold !important;
 }
@@ -10,7 +16,7 @@ body {
 	margin-top: 10px;
 }
 .event-list {
-	height: 60vh;
+	height: 65vh;
 	overflow-y: scroll;
 }
 
@@ -23,6 +29,11 @@ body {
 
 #building-map {
 	height: 70vh;
+	overflow-y: scroll;
+}
+
+#faqs {
+	height: 65vh;
 	overflow-y: scroll;
 }
 
