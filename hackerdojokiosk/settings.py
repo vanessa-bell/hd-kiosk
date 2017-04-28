@@ -87,7 +87,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'infokioskdb',
         'USER': 'root',
-        'PASSWORD': 'root',
+        'PASSWORD': 'admin',
         'HOST': 'localhost',  # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
