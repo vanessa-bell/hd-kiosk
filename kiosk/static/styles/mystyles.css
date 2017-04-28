@@ -3,10 +3,14 @@ body {
 }
 
 footer{
-	background-color: #e4e4e4;
-	padding-bottom: 20px;
+	height: 150px;
+	background-color: #ededed;
 }
 
+.ui-accordion-header-active {
+	background-color: #b61e44;
+	border: solid #b61e44;
+}
 
 .membership {
 	font-weight: bold !important;
@@ -14,6 +18,10 @@ footer{
 
 .spacing {
 	margin-top: 10px;
+}
+
+#events {
+	height: 76vh;
 }
 .event-list {
 	height: 65vh;
@@ -27,13 +35,21 @@ footer{
 	list-style-type: none;
 }
 
+#about-us {
+	height: 76vh;
+}
+
+#membership {
+	height: 76vh;
+}
+
 #building-map {
-	height: 70vh;
+	height: 69vh;
 	overflow-y: scroll;
 }
 
 #faqs {
-	height: 65vh;
+	height: 67vh;
 	overflow-y: scroll;
 }
 

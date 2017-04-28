@@ -15,6 +15,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
@@ -26,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
-    'jwhxudxzbq.localtunnel.me'
+    'rroxgvxlsg.localtunnel.me'
 ]
 
 # Application definition
@@ -39,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'kiosk',
-    'schedule'
 ]
 
 MIDDLEWARE = [
@@ -81,18 +81,15 @@ WSGI_APPLICATION = 'hackerdojokiosk.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
-
+# note: pw used to be 'admin'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'infokioskdb',
         'USER': 'root',
-        'PASSWORD': 'admin',
+        'PASSWORD': 'root',
         'HOST': 'localhost',  # Or an IP Address that your DB is hosted on
         'PORT': '3306',
-        'OPTIONS': {
-
-        },
     }
 }
 

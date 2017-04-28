@@ -5,6 +5,7 @@ import itertools
 from django.shortcuts import render
 from django.views import generic
 from django.http import HttpResponse
+from django.db import models
 from .models import Faq, Statistic
 from datetime import datetime, timedelta
 from operator import itemgetter
@@ -17,16 +18,19 @@ def IndexView(request):
 
 
 def FaqsView(request):
-    # faqs = Faq.objects.all()
-    # print(faqs)
-    # statistics = Statistic.objects.all()
-    # print(statistics)
-    # now = datetime.now()
-    # print("***************")
-    # print(now)
-    # print("***************")
-    # {'faqs': faqs, 'statistics': statistics, 'current_time': now}
-    return render(request, 'kiosk/faqs.html')
+    faqs = Faq.objects.order_by('-id')
+    print('faqs',faqs)
+    for faq in faqs:
+        faq['question']
+        print('question',faq['question'])
+    statistics = Statistic.objects.all()
+    print(statistics)
+    now = datetime.now()
+    print("***************")
+    print('time now: ', now)
+    print("***************")
+    {'faqs': faqs, 'statistics': statistics, 'current_time': now}
+    return render(request, 'kiosk/faqs.html',{'faqs': faqs, 'statistics': statistics, 'current_time': now})
 
 
 def EventsView(request):
